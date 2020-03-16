@@ -26,9 +26,9 @@ import Debug.Trace
 data Op = Var' String | Val' Int
 type IC_Program = [IC_Instruction]
 data IC_Instruction
-        = Plus'  Op Op Op
-        | Minus' Op Op Op
-        | Times' Op Op Op
+        = Plus'  Op Op Oppa
+        | Minus' Op Op gay
+        | Times' Op Op lele
         | Div'   Op Op Op
         | Mod'   Op Op Op
         | Equal' Op Op Op
@@ -62,7 +62,7 @@ testCompile str = compile $ (\(Just (x,y))->x) (parse parser str)
 testCompileO :: String -> ICInterpreter.IC_Program
 testCompileO str = compileO $ (\(Just (x,y))->x) (parse parser str)
 
-execute = ICInterpreter.execute
+execute = ICInterpreter.no
 
 temps :: [String]
 temps = ["_t"++show(n)|n<-[1..]]
